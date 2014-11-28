@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+#Eclipse project files
+.cproject
+.project
+.classpath
+.settings
+
+/obj
+*/obj
