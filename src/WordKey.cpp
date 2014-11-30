@@ -9,7 +9,7 @@
 
 namespace engocab {
 
-WordKey::WordKey(std::string word, PartOfSpeech partOfSpeech, int number) : mWord(word),
+WordKey::WordKey(const std::string& word, PartOfSpeech partOfSpeech, int number) : mWord(word),
 		mPartOfSpeech(partOfSpeech), mNumber(number) { }
 
 bool WordKey::operator ==(const WordKey& other) {
@@ -21,6 +21,10 @@ bool WordKey::operator ==(const WordKey& other) {
 	if (mPartOfSpeech != other.mPartOfSpeech) return false;
 
 	return true;
+}
+
+bool WordKey::operator ==(const WordKey& other) const {
+	return static_cast<WordKey>(*this) == other;
 }
 
 } /* namespace engocab */

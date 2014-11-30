@@ -40,10 +40,10 @@ class WordRecord {
 public:
 	WordRecord(const WordKey&);
 
-	WordRecord(std::string id, int index, WordKey& wordKey,
-			std::string translation, std::string tip, std::string description);
+	WordRecord(const std::string& id, int index, const WordKey& wordKey,
+			const std::string& translation, const std::string& tip, const std::string& description);
 
-	virtual ~WordRecord();
+	virtual ~WordRecord() = default;
 
 	void addExample(const Example&);
 
@@ -51,7 +51,9 @@ public:
 
 	void addTag(const std::string&);
 
-	bool operator=(const WordRecord&);
+	bool operator==(const WordRecord&);
+
+	std::string& getId() { return mId; }
 
 };
 

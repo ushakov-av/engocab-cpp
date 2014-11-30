@@ -9,10 +9,11 @@
 #define SRC_DICTIONARY_H_
 
 #include <unordered_map>
-#include <list>
+#include <string>
 #include <set>
 
-#include "PartOfSpeech.h"
+
+#include "WordContainer.h"
 #include "WordRecord.h"
 #include "WordKey.h"
 
@@ -28,7 +29,7 @@ public:
 
 	virtual ~Dictionary() = default;
 
-	void addContainer(const WordContainer&);
+	void addContainer(WordContainer&);
 
 	void addRecord(const WordRecord&);
 
@@ -36,12 +37,14 @@ public:
 
 	void removeRecord(const WordRecord& record);
 
-	WordRecord& getWordRecord(const WordKey&, std::string);
+	WordRecord* getWordRecord(const WordKey&, const std::string&);
 
 	std::set<WordContainer&> getContainers();
 
 };
 
 }
+
+
 
 #endif /* SRC_DICTIONARY_H_ */

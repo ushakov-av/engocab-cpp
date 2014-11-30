@@ -24,15 +24,17 @@ class WordContainer {
 public:
 	WordContainer(const WordKey&);
 
-	virtual ~WordContainer();
+	virtual ~WordContainer() = default;
 
-	WordKey& getWordKey();
+	WordKey& getWordKey() { return mWordKey; };
 
-	void setWordKey(const WordKey&);
+	WordKey getWordKey() const { return mWordKey; }
 
-	std::vector<WordRecord>& getRecords();
+	void setWordKey(const WordKey& wordKey) { mWordKey = wordKey; };
 
-	void addVector(const WordRecord&);
+	std::vector<WordRecord>& getRecords() { return mRecords; };
+
+	void addWordRecord(const WordRecord&);
 
 	bool operator==(const WordContainer&);
 

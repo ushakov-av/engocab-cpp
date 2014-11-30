@@ -5,29 +5,36 @@
  *      Author: Lunix
  */
 
+#include <unordered_map>
+
 #include "Dictionary.h"
+#include "WordContainer.h"
+
+using namespace std;
 
 namespace engocab {
 
-void Dictionary::addContainer(const WordContainer&) {
+void engocab::Dictionary::addContainer(WordContainer& container) {
+	mWordContainers.insert(make_pair(container.getWordKey(), container));
 }
 
-void Dictionary::addRecord(const WordRecord&) {
-
+bool Dictionary::contains(const WordKey& wordKey) {
+	return mWordContainers.find(wordKey) != mWordContainers.end();
 }
 
-bool Dictionary::contains(const WordKey&) {
-}
-
-void Dictionary::removeRecord(const WordRecord& record) {
-}
-
-WordRecord& Dictionary::getWordRecord(const WordKey&,
-		std::string allocator) {
-}
-
-std::set<WordContainer&> Dictionary::getContainers() {
-
+WordRecord* Dictionary::getWordRecord(const WordKey& wordKey, const std::string& recordId) {
+	auto search = mWordContainers.find(wordKey);
+	if (search != mWordContainers.end()) {
+		WordContainer& container = search->second;
+		for (auto& wordRecord : container.getRecords()) {
+			if (wordRecord.getId() == recordId) {
+				return &wordRecord;
+			}
+		}
+	}
+	return nullptr;
 }
 
 } /* namespace engocab */
+
+
