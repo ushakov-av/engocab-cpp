@@ -5,7 +5,12 @@
  *      Author: Lunix
  */
 
+#include <iostream>
+#include <sstream>
+
 #include "WordKey.h"
+
+using namespace std;
 
 namespace engocab {
 
@@ -25,6 +30,13 @@ bool WordKey::operator ==(const WordKey& other) {
 
 bool WordKey::operator ==(const WordKey& other) const {
 	return static_cast<WordKey>(*this) == other;
+}
+
+ostream& operator<<(ostream& ostr, const WordKey& wordKey)
+{
+	ostr << "WordKey{ word = " << wordKey.mWord << ", partOfSpeech = " << partOfSpeechToString(wordKey.mPartOfSpeech)
+			<< ", number = " << wordKey.mNumber << " }";
+	return ostr;
 }
 
 } /* namespace engocab */

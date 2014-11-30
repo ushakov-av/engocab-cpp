@@ -37,6 +37,7 @@ public:
 
 	void removeRecord(const WordRecord& record);
 
+	// todo: change return type
 	WordRecord* getWordRecord(const WordKey&, const std::string&);
 
 	std::set<WordContainer&> getContainers();

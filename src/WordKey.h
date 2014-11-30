@@ -10,6 +10,7 @@
 #include <string>
 #include <cstddef>
 #include <functional>
+#include <iostream>
 
 #include "PartOfSpeech.h"
 
@@ -35,6 +36,8 @@ public:
 	bool operator==(const WordKey&);
 
 	bool operator==(const WordKey&) const;
+
+	friend std::ostream& operator<<(std::ostream& ostr, const WordKey& cell);
 
 	std::string getWord() const { return mWord;	}
 

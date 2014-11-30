@@ -6,7 +6,6 @@
 #include "WordContainer.h"
 #include "Dictionary.h"
 
-
 using namespace engocab;
 using namespace std;
 
@@ -22,6 +21,10 @@ int main() {
 	WordRecord wordRecord("089112b4-288e-4e49-99f2-42472404ce3a", 1,
 			wordKey, "привет", "some tip", "hello is used for greeting");
 
+	Example example("hello hello", "привет привет", "");
+
+	wordRecord.addExample(example);
+
 
 	WordRecord wordRecord2("0da3edf3-2153-4d7b-93fe-9f58f4d75d6e", 2,
 				wordKey, "привет 2", "some tip 2", "hello is used for greeting 2");
@@ -34,12 +37,12 @@ int main() {
 	Dictionary dictionary;
 	dictionary.addContainer(container);
 
-	cout << dictionary.contains(wordKey) << endl;
-	cout << dictionary.contains(wordKey2) << endl;
+	cout << "dictionary contains wordKey " << dictionary.contains(wordKey) << endl;
+	cout << "dictionary contains wordKey2 " << dictionary.contains(wordKey2) << endl;
 
 	WordRecord* record1 = dictionary.getWordRecord(wordKey, "089112b4-288e-4e49-99f2-42472404ce3a");
 	if (record1 != nullptr) {
-		cout << record1->getId() << endl;
+		cout << *record1 << endl;
 	}
 
 	WordRecord* record2 = dictionary.getWordRecord(wordKey, "non-existent");

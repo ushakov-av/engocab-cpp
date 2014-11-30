@@ -28,11 +28,13 @@ public:
 
 	virtual ~Example() = default;
 
-	std::string getWordExample() const { return mWordExample; }
+	friend std::ostream& operator<<(std::ostream&, const Example&);
 
-	std::string getTranslationExample() const { return mTranslationExample; }
+	const std::string& getWordExample() const { return mWordExample; }
 
-	std::string getPhrase() const { return mPhrase; }
+	const std::string& getTranslationExample() const { return mTranslationExample; }
+
+	const std::string& getPhrase() const { return mPhrase; }
 };
 
 }

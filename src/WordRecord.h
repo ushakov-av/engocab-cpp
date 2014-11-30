@@ -47,26 +47,33 @@ public:
 
 	bool operator==(const WordRecord&);
 
+	friend std::ostream& operator<<(std::ostream&, const WordRecord&);
+
 	void addExample(const Example&);
 
 	void addTag(const std::string);
 
 	const std::string& getId() { return mId; }
 
-	int getIndex() { return mIndex; }
+	const int getIndex() { return mIndex; }
 
 	const WordKey& getWordKey() { return mWordKey; }
 
 	const std::string& getTranslation() { return mTranslation; }
 
+	const std::string& getTip() { return mTip; }
+
 	const std::string& getDescription() { return mDescription; }
 
 	const std::vector<Example>& getExamples() { return mExamples; }
+
+	const std::vector<Example>& getExamples() const { return mExamples; }
 
 	const std::vector<Synonym>& getSynonyms() { return mSynonyms; }
 
 	const std::vector<std::string>& getTags() { return mTags; }
 
+	const std::vector<std::string>& getTags() const { return mTags; }
 
 
 
