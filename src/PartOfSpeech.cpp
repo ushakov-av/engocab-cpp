@@ -1,8 +1,7 @@
 /*
  * PartOfSpeech.cpp
  *
- *  Created on: 30 но€б. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #include "PartOfSpeech.h"

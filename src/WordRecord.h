@@ -1,8 +1,7 @@
 /*
  * WordRecord.h
  *
- *  Created on: 31 окт. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #ifndef SRC_WORDRECORD_H_
@@ -58,6 +57,8 @@ public:
 	const int getIndex() { return mIndex; }
 
 	const WordKey& getWordKey() { return mWordKey; }
+
+	const WordKey& getWordKey() const { return mWordKey; }
 
 	const std::string& getTranslation() { return mTranslation; }
 

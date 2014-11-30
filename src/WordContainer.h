@@ -1,8 +1,7 @@
 /*
  * WordContainer.h
  *
- *  Created on: 31 окт. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #ifndef SRC_WORDCONTAINER_H_

@@ -1,3 +1,10 @@
+/*
+ * PartOfSpeech.h
+ *
+ * author Alexander V. Ushakov
+ */
+
+
 #ifndef SRC_PARTOFSPEECH_H_
 #define SRC_PARTOFSPEECH_H_
 

@@ -1,8 +1,7 @@
 /*
  * Example.h
  *
- *  Created on: 31 окт. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #ifndef SRC_EXAMPLE_H_

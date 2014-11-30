@@ -1,3 +1,9 @@
+/*
+ * Engocab.cpp
+ *
+ * author Alexander V. Ushakov
+ */
+
 #include <iostream>
 
 #include "PartOfSpeech.h"
@@ -51,6 +57,16 @@ int main() {
 	if (record2 == nullptr) {
 		cout << "not found" << endl;
 	}
+
+	WordRecord wordRecord3("xxxxxxxx-2153-4d7b-93fe-9f58f4d75d6e", 3,
+					wordKey, "привет 3", "some tip 3", "hello is used for greeting 3");
+	dictionary.addRecord(wordRecord3);
+
+	WordRecord* record3 = dictionary.getWordRecord(wordKey, "xxxxxxxx-2153-4d7b-93fe-9f58f4d75d6e");
+	cout << *record3 << endl;
+
+
+
 
 
 	return 0;

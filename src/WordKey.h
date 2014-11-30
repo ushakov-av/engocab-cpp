@@ -1,7 +1,7 @@
 /*
  * WordKey.h
  *
- *
+ * author Alexander V. Ushakov
  */
 
 #ifndef SRC_WORDKEY_H_

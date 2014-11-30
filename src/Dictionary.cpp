@@ -1,11 +1,11 @@
 /*
  * Dictionary.cpp
  *
- *  Created on: 31 окт. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #include <unordered_map>
+#include <memory>
 
 #include "Dictionary.h"
 #include "WordContainer.h"
@@ -16,6 +16,19 @@ namespace engocab {
 
 void engocab::Dictionary::addContainer(WordContainer& container) {
 	mWordContainers.insert(make_pair(container.getWordKey(), container));
+}
+
+void engocab::Dictionary::addRecord(const WordRecord& wordRecord) {
+	const auto& wordKey = wordRecord.getWordKey();
+	auto search = mWordContainers.find(wordKey);
+
+	if (search == mWordContainers.end()) {
+		unique_ptr<WordContainer> container_ptr(new WordContainer(wordKey));
+		mWordContainers.insert(make_pair(wordKey, *container_ptr));
+	}
+
+	auto& container = (mWordContainers.find(wordKey))->second;
+	container.addWordRecord(wordRecord);
 }
 
 bool Dictionary::contains(const WordKey& wordKey) {

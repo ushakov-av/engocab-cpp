@@ -1,8 +1,7 @@
 /*
  * Example.cpp
  *
- *  Created on: 31 окт. 2014 г.
- *      Author: Lunix
+ * author Alexander V. Ushakov
  */
 
 #include <iostream>
