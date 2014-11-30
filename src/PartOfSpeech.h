@@ -10,25 +10,7 @@ enum PartOfSpeech {
 	Noun, Verb, PhrasalVerb, Adverb, Adjective, Preposition
 };
 
-
-std::string partOfSpeechToString(PartOfSpeech pos) {
-	switch (pos) {
-	case Noun:
-		return "Noun";
-	case Verb:
-		return "Verb";
-	case PhrasalVerb:
-		return "Phrasal verb";
-	case Adverb:
-		return "Adverb";
-	case Adjective:
-		return "Adjective";
-	case Preposition:
-		return "Preposition";
-	}
-	return "";
-}
-
+std::string partOfSpeechToString(PartOfSpeech pos);
 
 }
 

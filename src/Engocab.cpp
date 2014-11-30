@@ -24,6 +24,8 @@ int main() {
 	Example example("hello hello", "привет привет", "");
 
 	wordRecord.addExample(example);
+	wordRecord.addTag("basic4000");
+	wordRecord.addTag("longman3000");
 
 
 	WordRecord wordRecord2("0da3edf3-2153-4d7b-93fe-9f58f4d75d6e", 2,
