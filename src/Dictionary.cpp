@@ -5,7 +5,6 @@
  */
 
 #include <unordered_map>
-#include <memory>
 
 #include "Dictionary.h"
 #include "WordContainer.h"
@@ -23,16 +22,35 @@ void engocab::Dictionary::addRecord(const WordRecord& wordRecord) {
 	auto search = mWordContainers.find(wordKey);
 
 	if (search == mWordContainers.end()) {
-		unique_ptr<WordContainer> container_ptr(new WordContainer(wordKey));
-		mWordContainers.insert(make_pair(wordKey, *container_ptr));
+		WordContainer container(wordKey);
+		container.addWordRecord(wordRecord);
+		mWordContainers.insert(make_pair(wordKey, container));
+	} else {
+		auto& container = (mWordContainers.find(wordKey))->second;
+		container.addWordRecord(wordRecord);
 	}
-
-	auto& container = (mWordContainers.find(wordKey))->second;
-	container.addWordRecord(wordRecord);
 }
 
 bool Dictionary::contains(const WordKey& wordKey) {
 	return mWordContainers.find(wordKey) != mWordContainers.end();
+}
+
+void Dictionary::removeRecord(const WordRecord& record) {
+	const auto& wordKey = record.getWordKey();
+	auto search = mWordContainers.find(wordKey);
+
+	if (search != mWordContainers.end()) {
+		auto& container = search->second;
+		auto& records = container.getRecords();
+		for (auto it = begin(records); it != end(records); ++it) {
+			if (it->getId() == record.getId()) {
+				records.erase(it);
+			}
+		}
+		if (container.getRecords().size() == 0) {
+			mWordContainers.erase(wordKey);
+		}
+	}
 }
 
 WordRecord* Dictionary::getWordRecord(const WordKey& wordKey, const std::string& recordId) {

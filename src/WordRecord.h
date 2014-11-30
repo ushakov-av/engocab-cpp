@@ -50,9 +50,11 @@ public:
 
 	void addExample(const Example&);
 
-	void addTag(const std::string);
+	void addTag(const std::string&);
 
 	const std::string& getId() { return mId; }
+
+	const std::string& getId() const { return mId; }
 
 	const int getIndex() { return mIndex; }
 

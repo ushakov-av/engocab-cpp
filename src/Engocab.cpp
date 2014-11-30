@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <memory>
 
 #include "PartOfSpeech.h"
 #include "WordKey.h"
@@ -66,7 +67,30 @@ int main() {
 	cout << *record3 << endl;
 
 
+	// Add record "accept"
 
+	WordKey acceptKey("accept", PartOfSpeech::Verb, 1);
+
+	WordRecord acceptRecord1("id-1", 1, acceptKey, "принимать", "some tip", "some description");
+
+	dictionary.addRecord(acceptRecord1);
+
+	WordRecord acceptRecord2("id-2", 2, acceptKey, "принимать 2 ", "some tip 2", "some description 2");
+
+	dictionary.addRecord(acceptRecord2);
+
+	WordRecord* acceptRecord_1 = dictionary.getWordRecord(acceptKey, "id-1");
+	cout << *acceptRecord_1 << endl;
+
+	WordRecord* acceptRecord_2 = dictionary.getWordRecord(acceptKey, "id-2");
+	cout << *acceptRecord_2 << endl;
+
+	dictionary.removeRecord(acceptRecord1);
+
+	acceptRecord_1 = dictionary.getWordRecord(acceptKey, "id-1");
+	if (acceptRecord_1 == nullptr) {
+		cout << "id-1 was removed" << endl;
+	}
 
 
 	return 0;
