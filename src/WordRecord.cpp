@@ -20,5 +20,22 @@ engocab::WordRecord::WordRecord(const string& id, int index, const WordKey& word
 	: mId(id), mIndex(index), mWordKey(wordKey), mTranslation(translation), mTip(tip), mDescription(description) {
 }
 
+bool WordRecord::operator ==(const WordRecord& other) {
+	if (this == &other) {
+		return true;
+	}
+	return mId == other.mId;
+}
+
+void engocab::WordRecord::addExample(const Example& example) {
+	mExamples.push_back(example);
+}
+
+void engocab::WordRecord::addTag(const std::string tag) {
+	mTags.push_back(tag);
+}
+
 
 } /* namespace engocab */
+
+

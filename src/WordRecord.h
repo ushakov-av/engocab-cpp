@@ -45,15 +45,31 @@ public:
 
 	virtual ~WordRecord() = default;
 
-	void addExample(const Example&);
-
-	void addSynony(const Synonym&);
-
-	void addTag(const std::string&);
-
 	bool operator==(const WordRecord&);
 
-	std::string& getId() { return mId; }
+	void addExample(const Example&);
+
+	void addTag(const std::string);
+
+	const std::string& getId() { return mId; }
+
+	int getIndex() { return mIndex; }
+
+	const WordKey& getWordKey() { return mWordKey; }
+
+	const std::string& getTranslation() { return mTranslation; }
+
+	const std::string& getDescription() { return mDescription; }
+
+	const std::vector<Example>& getExamples() { return mExamples; }
+
+	const std::vector<Synonym>& getSynonyms() { return mSynonyms; }
+
+	const std::vector<std::string>& getTags() { return mTags; }
+
+
+
+
 
 };
 
